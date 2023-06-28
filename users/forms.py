@@ -20,6 +20,7 @@ class UserLoginForm(AuthenticationForm):
 
 class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={
+
         'class': 'form-control py-4',
         'placeholder': 'Введите имя'
     }))
@@ -52,15 +53,16 @@ class UserRegistrationForm(UserCreationForm):
 
 class UserProfileForm(UserChangeForm):
 
-    first_name = forms.CharField(widget=forms.Textarea(
+    first_name = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control py-4'}))
-    last_name = forms.CharField(widget=forms.Textarea(
+    last_name = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control py-4'}))
-    image = forms.ImageField(widget=forms.Textarea(
-        attrs={'class': 'custom-file-input'}))
-    username = forms.CharField(widget=forms.Textarea(
+    image = forms.ImageField(widget=forms.TextInput(
+        attrs={'class': 'custom-file-input'}), required=False)
+    username = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control py-4'}))
-    email = 
+    email = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control py-4'}))
 
     class Meta:
         model = User
