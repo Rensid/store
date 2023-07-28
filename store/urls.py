@@ -7,7 +7,7 @@ from products import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+    path('', views.IndexView.as_view(), name='index'),
     path('products/', include('products.urls'), name='products'),
     path('users/', include('users.urls'), name='users'),
 ]
