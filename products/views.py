@@ -1,13 +1,13 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from products.models import Product, ProductCategory
-from products.models import Basket
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
+
 from common.views import TitleMixin
+from products.models import Basket, Product, ProductCategory
 
 
 # render main page
