@@ -11,6 +11,7 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('products/', include('products.urls'), name='products'),
     path('users/', include('users.urls'), name='users'),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

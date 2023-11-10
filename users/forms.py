@@ -65,6 +65,7 @@ class UserRegistrationForm(UserCreationForm):
         record.send_verification_email()
         return user
 
+
 class UserProfileForm(UserChangeForm):
 
     first_name = forms.CharField(widget=forms.TextInput(
@@ -77,6 +78,12 @@ class UserProfileForm(UserChangeForm):
         attrs={'class': 'form-control py-4'}))
     email = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control py-4'}))
+    phone_number = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'pattern': r'\+7\ (\d{3}\) \d{3}-\d{2}-\d{2}',
+            'class': 'form-control py-4'
+        }),
+    )
 
     class Meta:
         model = User

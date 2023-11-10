@@ -36,11 +36,17 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
     'users',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'store.urls'
@@ -88,9 +96,9 @@ WSGI_APPLICATION = 'store.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "store",
+        "NAME": "postgres",
         "USER": "postgres",
-        "PASSWORD": "Lihobor0754133",
+        "PASSWORD": "050298",
         "HOST": "localhost",
         "PORT": "5432",
     }
@@ -159,3 +167,14 @@ EMAIL_PORT = '465'
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'store-project2023@yandex.ru'
 EMAIL_HOST_PASSWORD = 'ebmicxmkhenyqmky'
+
+# OAuth
+
+SITE_ID = 1
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+        ],
+    }
+}

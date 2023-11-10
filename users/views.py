@@ -33,6 +33,7 @@ class UserProfileView(TitleMixin, UpdateView):
     model = User
     form_class = UserProfileForm
     template_name = 'users/profile.html'
+
     title = 'Store - Профиль'
 
     def get_success_url(self) -> str:

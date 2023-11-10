@@ -9,6 +9,7 @@ from django.utils.timezone import now
 class User(AbstractUser):
     image = models.ImageField(upload_to='user_images', null=True)
     is_verified = models.BooleanField(default=False)
+    phone = models.CharField(max_length=20, null=True, blank=True)
 
 
 class EmailVerification(models.Model):
@@ -39,3 +40,5 @@ class EmailVerification(models.Model):
 
     def is_expired(self):
         return True if now() >= self.expiration else False
+
+
